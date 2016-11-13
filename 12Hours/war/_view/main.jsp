@@ -4,9 +4,12 @@
 
 
 <html>
-	
+		<style>
+			background-color: #159957;
+  			background-image: linear-gradient(120deg, #155799, #159957);  
+ 	 	</style>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="_view/stylesheets/stylesheet.css" media="screen" />
 		<h1>ELECTION YEAR</h1>
 		<h1 align = right>Days left</h1>
@@ -14,7 +17,7 @@
 		<h3 align = left>Political</h3><h3 align = left id="political"></h3>
 		<h3 align = left>Personal</h3><h3 align = left id="personal"></h3>
 	</head>
-	<body>
+	<body background = "trump-border-wall.jpg">
 	
 		<form action="${pageContext.servletContext.contextPath}/main" method="post">
 			

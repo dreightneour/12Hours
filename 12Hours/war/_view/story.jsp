@@ -21,7 +21,7 @@
 			<p>Who are you</p>
 		</section>
 		<form action="${pageContext.servletContext.contextPath}/Story" method="post">
-			<table>
+			<table align = center>
 				<thead>
 					<tr>
 						<th>
@@ -38,7 +38,7 @@
 				<tbody>
 					<tr>
 						<td>
-							<select align = center id = "origin" name = "origin" required>
+							<select  id = "origin" name = "origin" required>
 							  <option value=1>Born and raised in a log cabin</option>
 							  <option value=2>Straight from the streets</option>
 							  <option value=3>Normal life, nothing special</option>
@@ -49,7 +49,7 @@
 						<td>
 						</td>
 						<td>
-							<select align = center id = "time" name = "time" required>
+							<select  id = "time" name = "time" required>
 							  <option value=1>Just got in the game</option>
 							  <option value=2>Always been in the limelight</option>
 							  <option value=3>Only ever was a local position</option>

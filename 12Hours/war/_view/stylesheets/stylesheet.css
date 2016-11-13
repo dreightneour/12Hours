@@ -1,10 +1,13 @@
 /* Styling sheet by Smitty for YCPHacks Hackathon 10/21 - 10/23 */
 
 body {
-  color: #fff;
+	
+  /*color: #fff;*/
   text-align: center;
+  background-image: url("trump-border-wall.jpg");
+  
   background-color: #159957;
-  background-image: linear-gradient(120deg, #155799, #159957);  
+  /*background-image: linear-gradient(120deg, #155799, #159957);  */
 }
 
 .page-header {
