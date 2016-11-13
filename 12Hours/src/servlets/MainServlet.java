@@ -28,7 +28,7 @@ public class MainServlet extends HttpServlet {
 		presidente = (Person)req.getSession().getAttribute("person");
 		req.getSession().setAttribute("presidente", presidente);
 		Random rand = new Random();
-		incumbent = new Person("John Smith", presidente.getCountry(), "Best Party", rand.nextInt(5) + 1, rand.nextInt(5) + 1);
+		incumbent = new Person("John Smith", presidente.getCountry(), "Best Party", "HI", rand.nextInt(5) + 1, rand.nextInt(5) + 1);
 		req.getSession().setAttribute("incumbent", incumbent);
 		for(int i = 0; i < 20; i++)
 		{

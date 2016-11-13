@@ -198,6 +198,11 @@
 					init();
 				}
 				
+				if(dLeft % 90 == 0 && dLeft != 90)
+				{
+					plan(numAtt);
+				}
+				
 				if(dLeft % 30 == 0)
 				{
 					weights();
@@ -219,6 +224,8 @@
 			
 			function plan(num)
 			{
+				window.clearInterval(myTimer);
+				alert("NEED TO PICK AN ATRIBUTE");
 				attrib[num] = document.getElementById("attrib").value;
 				numAtt++;
 			}

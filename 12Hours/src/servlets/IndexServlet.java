@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.Login;
 import main.Person;
 
 //import edu.ycp.cs320.lab03.controller.AddNumbersController;
@@ -26,8 +27,9 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		Person person = new Person(req.getParameter("name"), req.getParameter("country"), req.getParameter("party"));
+		Person person = new Person(req.getParameter("name"), req.getParameter("country"), req.getParameter("party"), req.getParameter("password"));
 		req.getSession().setAttribute("person", person);
+		Login log = new Login(person.getName(), person.getPass());
 		//req.getRequestDispatcher("/_view/story.jsp").forward(req, resp);
 		resp.sendRedirect("Story");
 	}

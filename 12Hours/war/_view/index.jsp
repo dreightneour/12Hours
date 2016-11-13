@@ -34,6 +34,9 @@
 						<th>
 							<label>Party</label>
 						</th>
+						<th>
+							<label>Password</label>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,6 +49,9 @@
 						</td>
 						<td>
 							<input type="text" name="party" value="Republican" required>
+						</td>
+						<td>
+							<input type="text" name="password" value="PASSWORD" required>
 						</td>
 					</tr>	
 				</tbody>			
