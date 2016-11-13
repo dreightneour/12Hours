@@ -183,7 +183,8 @@
 				
 			    dLeft--;
 			    document.getElementById("left").innerHTML = dLeft;
-			    var x = document.getElementByClass("days");
+			    var x = document.getElementsByClassName("days");
+			    console.log(x)
 			    console.log(x[loc].value);
 			    if(dLeft == 0)
 			    {
