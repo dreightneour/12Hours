@@ -11,8 +11,8 @@
 		<h1>ELECTION YEAR</h1>
 		<h1 align = right>Days left</h1>
 		<p align = right id="left"></p>
-		<p>Political</p><p id="political"></p>
-		<p>Personal</p><p id="personal"></p>
+		<h3 align = left>Political</h3><h3 align = left id="political"></h3>
+		<h3 align = left>Personal</h3><h3 align = left id="personal"></h3>
 	</head>
 	<body>
 	
@@ -183,13 +183,22 @@
 			var blackV = 0;
 			var latV = 0;
 			var whiteV = 0;
+			var votes = [0, 0, 0, 0, 0];
+			
+			var womenVB = false;
+			var menVB = false;
+			var whiteVB = false;
+			var blackVB = false;
+			var latVB = false;
+			
+			
 			function myTimer() {
 				if(dLeft == 365)
 				{
 					init();
 				}
 				
-				if(dLeft %30 == 0)
+				if(dLeft % 30 == 0)
 				{
 					weights();
 				}
@@ -217,63 +226,80 @@
 			function weights()
 			{
 				var women = parseInt(document.getElementById("wTop").innerHTML);
-				if(women / 3 < numAtt)
+				if(women / 3 < numAtt && womenVB == false)
 				{
 					womenV = Math.abs((women % 3) - attrib[women|3]) - 1;
 				}
 				
 				var men = parseInt(document.getElementById("mTop").innerHTML);
-				if(men / 3 < numAtt)
+				if(men / 3 < numAtt && menVB == false)
 				{
 					menV = Math.abs((men%3) - attrib[men|3]) - 1;
 				}
 				
 				var white = parseInt(document.getElementById("whTop").innerHTML);
-				if(white / 3 < numAtt)
+				if(white / 3 < numAtt && whiteVB == false)
 				{
 					whiteV = Math.abs((white%3) - attrib[white|3]) - 1;
 				}
 				
 				var black = parseInt(document.getElementById("bTop").innerHTML);
-				if(black / 3 < numAtt)
+				if(black / 3 < numAtt && blackVB == false)
 				{
 					blackV = Math.abs((black%3) - attrib[black|3]) - 1;
 				}
 				
 				var lat = parseInt(document.getElementById("lTop").innerHTML);
-				if(lat / 3 < numAtt)
+				if(lat / 3 < numAtt && latVB == false)
 				{
 					latV = Math.abs((lat%3) - attrib[lat|3]) - 1;
 				}
 				
-				if(womenV != 0)
+				if(womenV != 0 && womenVB == false)
 				{
-					console.log(document.getElementById("wVote").innerHTML);
-					console.log(parseInt(document.getElementById("wVote").innerHTML));
-					console.log(womenV * 20);
 					document.getElementById("wVote").innerHTML = parseInt(document.getElementById("wVote").innerHTML) + (womenV * -20);
-					console.log(document.getElementById("wVote").innerHTML);
+					womenVB = true;
 				}
 				
-				if(whiteV != 0)
+				if(whiteV != 0 && whiteVB == false)
 				{
 					document.getElementById("whVote").innerHTML = parseInt(document.getElementById("whVote").innerHTML) + whiteV * -20;
+					whiteVB = true;
 				}
 				
-				if(menV != 0)
+				if(menV != 0 && menVB == false)
 				{
 					document.getElementById("mVote").innerHTML = parseInt(document.getElementById("mVote").innerHTML) + menV * -20;
+					menVB = true;
 				}
 				
-				if(blackV != 0)
+				if(blackV != 0 && blackVB == false)
 				{
 					document.getElementById("bVote").innerHTML = parseInt(document.getElementById("bVote").innerHTML) + blackV * -20;
+					blackVB = true;
 				}
 				
-				if(latV != 0)
+				if(latV != 0 && latVB == false)
 				{
 					document.getElementById("lVote").innerHTML = parseInt(document.getElementById("lVote").innerHTML) + latV * -20;
+					latVB = true;
 				}
+				
+				votes[0] = 30 * parseInt(document.getElementById("wVote").innerHTML) + 17.5 * parseInt(document.getElementById("mVote").innerHTML) + 17.5 * parseInt(document.getElementById("whVote").innerHTML) + 17.5 * parseInt(document.getElementById("bVote").innerHTML) + 17.5 * parseInt(document.getElementById("lVote").innerHTML);
+				votes[1] = 17.5 * parseInt(document.getElementById("wVote").innerHTML) + 30 * parseInt(document.getElementById("mVote").innerHTML) + 17.5 * parseInt(document.getElementById("whVote").innerHTML) + 17.5 * parseInt(document.getElementById("bVote").innerHTML) + 17.5 * parseInt(document.getElementById("lVote").innerHTML);
+				votes[2] = 17.5 * parseInt(document.getElementById("wVote").innerHTML) + 17.5 * parseInt(document.getElementById("mVote").innerHTML) + 30 * parseInt(document.getElementById("whVote").innerHTML) + 17.5 * parseInt(document.getElementById("bVote").innerHTML) + 17.5 * parseInt(document.getElementById("lVote").innerHTML);
+				votes[3] = 17.5 * parseInt(document.getElementById("wVote").innerHTML) + 17.5 * parseInt(document.getElementById("mVote").innerHTML) + 17.5 * parseInt(document.getElementById("whVote").innerHTML) + 30 * parseInt(document.getElementById("bVote").innerHTML) + 17.5 * parseInt(document.getElementById("lVote").innerHTML);
+				votes[4] = 17.5 * parseInt(document.getElementById("wVote").innerHTML) + 17.5 * parseInt(document.getElementById("mVote").innerHTML) + 17.5 * parseInt(document.getElementById("whVote").innerHTML) + 17.5 * parseInt(document.getElementById("bVote").innerHTML) + 30 * parseInt(document.getElementById("lVote").innerHTML);
+				
+				var x = document.getElementsByClassName("pct");
+				var y = document.getElementsByClassName("top");
+				var z = document.getElementsByClassName("days");
+			    
+				for(var i = 0; i < 20; i++)
+				{
+					x[i].innerHTML = (votes[parseInt(y[i].innerHTML)] / 100) + parseInt(z[i].innerHTML);
+				}
+				
 			}
 			
 			function init()
@@ -283,9 +309,6 @@
 				document.getElementById("whTop").innerHTML = parseInt(Math.random() * 12);
 				document.getElementById("lTop").innerHTML = parseInt(Math.random() * 12);
 				document.getElementById("mTop").innerHTML = parseInt(Math.random() * 12);
-				
-				document.getElementById("wTop").innerHTML = 2;
-				document.getElementById("bTop").innerHTML = 0;
 				
 				document.getElementById("wVote").innerHTML = 50;
 				document.getElementById("bVote").innerHTML = 50;
