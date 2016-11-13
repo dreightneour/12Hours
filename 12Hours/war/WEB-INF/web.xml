@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+  	<servlet-name>Story</servlet-name>
+  	<servlet-class>servlets.StoryServlet</servlet-class>
+  </servlet><servlet>
+  	<servlet-name>Main</servlet-name>
+  	<servlet-class>servlets.MainServlet</servlet-class>
+  </servlet><servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>servlets.IndexServlet</servlet-class>
+  </servlet>
+  
+ 
+  
+
+
+  <!-- Servlet mappings -->
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Story</servlet-name>
+  	<url-pattern>/Story</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Main</servlet-name>
+  	<url-pattern>/Main</url-pattern>
+  </servlet-mapping>
+
+</web-app>
