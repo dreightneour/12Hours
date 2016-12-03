@@ -18,7 +18,7 @@ public class IndexServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("In the Index servlet");
+		//System.out.println("In the Index servlet");
 		
 		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
 	}

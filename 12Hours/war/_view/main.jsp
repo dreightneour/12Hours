@@ -4,10 +4,6 @@
 
 
 <html>
-		<style>
-			background-color: #159957;
-  			background-image: linear-gradient(120deg, #155799, #159957);  
- 	 	</style>
 	<head>
 		 <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="_view/stylesheets/stylesheet.css" media="screen" />

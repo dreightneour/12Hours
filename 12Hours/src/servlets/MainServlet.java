@@ -23,7 +23,7 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("In the Main servlet");
+		//System.out.println("In the Main servlet");
 		districts = new ArrayList<District>();
 		presidente = (Person)req.getSession().getAttribute("person");
 		req.getSession().setAttribute("presidente", presidente);

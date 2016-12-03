@@ -17,7 +17,7 @@ public class StoryServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("In the Story servlet");
+		//System.out.println("In the Story servlet");
 		
 		req.getRequestDispatcher("/_view/story.jsp").forward(req, resp);
 	}
